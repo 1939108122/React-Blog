@@ -2,7 +2,7 @@
   background-color: #fff;
   padding: .4rem;
   overflow: hidden;
-  height: 2.8rem;
+  height: 3.2rem;
   border-bottom: 1px solid #ccc;
 }
 .header-logo {
@@ -18,7 +18,7 @@
 }
 
 .ant-menu {
-  line-height: 2.6rem;
+  line-height: 2.8rem;
 }
 .ant-menu-item {
   padding-left: 1rem;
