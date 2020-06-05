@@ -34,7 +34,7 @@ module.exports = appInfo => {
       // username
       user: 'root',
       // password
-      password: '12345678',
+      password: 'root',
       // database
       database: 'react_blog',    
     },
@@ -43,6 +43,17 @@ module.exports = appInfo => {
     // load into agent, default is close
     agent: false,
   };
+  
+  config.security= {
+    csrf: {
+      enable: false
+    },
+    domainWhiteList: ['*']
+  };
+  config.cors= {
+    origin: '*',
+    allowMethods:'GET, HEAD, PUT, POST, DELETE, PATCH, OPTIONS'
+  }
 
   return {
     ...config,
