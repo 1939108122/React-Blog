@@ -5,7 +5,7 @@ function Main () {
   return (
     <Router>
       <Link to='/login'>toLogin</Link>
-      <Route  path='/login' component={Login}/>
+      <Route  path='/login' component={Login}/> 
     </Router>
     
   )
