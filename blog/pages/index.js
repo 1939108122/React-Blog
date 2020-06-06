@@ -8,8 +8,26 @@ import Footer from '../components/Footer'
 import { Row, Col, List, Icon } from 'antd'
 import { useState } from 'react'
 import servicePath from './api/url'
+import marked from 'marked'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/monokai-sublime.css'
+import '../public/pages/index.css'
+
 export default function Home(list) {
   const [myList, setList] = useState(list.data)
+  const renderer = new marked.Renderer()
+  marked.setOptions({
+    renderer: renderer,
+    gfm: true,
+    pedantic: false,
+    sanitize: false,
+    tables: true,
+    breaks: false,
+    smartLists: true,
+    highlight: function (code) {
+      return hljs.highlightAuto(code).value
+    }
+  })
   return (
     <>
       <Head>
@@ -34,7 +52,11 @@ export default function Home(list) {
                   <span><Icon type="folder" />{item.typeName}</span>
                   <span><Icon type="fire" />{item.count}人</span>
                 </div>
-                <div className="list-context">{item.introduce}</div>
+                <div className="list-context"
+                dangerouslySetInnerHTML={{__html: marked(item.introduce)}}
+                >
+                    
+                </div>
               </List.Item>
             )}
             />
