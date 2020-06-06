@@ -39,6 +39,22 @@ class HomeController extends Controller {
     const result = await this.app.mysql.select('type')
     this.ctx.body = {data: result}
   }
+
+  // 根据类别 id获取文章列表
+  async getListById() {
+    let id = this.ctx.params.id
+    let sql ='SELECT article.Id as id, ' + 
+              'article.title as title,' +
+              'article.introduce as introduce,' +
+              'article.article_content as article_content,' +
+              'article.view_count as count,' +
+              'type.typeName as typeName,'+
+              'type.Id as typeId ' +
+              'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
+              'WHERE type.Id = '+ id
+            const result = await this.app.mysql.query(sql)
+            this.ctx.body = {data: result}
+  }
 }
 
 
