@@ -6,3 +6,7 @@
 module.exports = app => {
   require('./router/default')(app)
 };
+
+module.exports = app => {
+  require('./router/admin')(app)
+};
