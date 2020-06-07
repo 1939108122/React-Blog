@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Login from './Login'
+import AdminIndex from './AdminIndex'
 function Main () {
   return (
     <Router>
-      <Link to='/login'>toLogin</Link>
-      <Route  path='/login' component={Login}/> 
+      <Route  path='/' exact component={Login}/>
+      <Route  path='/index/' component={AdminIndex}/>
     </Router>
     
   )
