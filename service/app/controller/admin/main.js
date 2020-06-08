@@ -30,7 +30,7 @@ class MainController extends Controller {
     const resType = await this.app.mysql.select('type')
     this.ctx.body = {data: resType}
   }
-  async addArticle () {
+  async addArticle () {  //从数据库添加文章
     let tmpArticle = this.ctx.request.body
     const result =  await this.app.mysql.insert('article', tmpArticle)
     const insertSuccess = result.affectedRows === 1
@@ -39,6 +39,56 @@ class MainController extends Controller {
       isSuccess: insertSuccess,
       insertId: insertId
     }
+  }
+
+ //修改文章
+  async updateArticle(){
+    let tmpArticle= this.ctx.request.body
+
+    const result = await this.app.mysql.update('article', tmpArticle);
+    const updateSuccess = result.affectedRows === 1;
+    this.ctx.body={
+      isSuccess: updateSuccess
+    }
+  } 
+
+  // 获取文章列表
+  async getArticleList () {
+      let sql ='SELECT article.Id as id, ' + 
+      'article.title as title,' +
+      'article.introduce as introduce,' +
+      'article.addTime as addTime,' +
+      'article.view_count as count,' +
+      'type.typeName as typeName '+
+  'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
+  'ORDER BY article.id DESC'
+
+  const results = await this.app.mysql.query(sql)
+    this.ctx.body = {list: results}
+  }
+
+  async delArticle () {
+    let id = this.ctx.params.id
+    const res = await this.app.mysql.delete('article', {'id': id})
+
+    this.ctx.body = { data: res }
+  }
+  // 根据ID获取文章
+  async getArticleById() {
+    let id = this.ctx.params.id
+    let sql = 'SELECT article.Id as id, ' + 
+        'article.title as title,' +
+        'article.introduce as introduce,' +
+        'article.article_content as article_content,'+
+        'article.addTime as addTime,' +
+        'article.view_count as count,' +
+        'type.typeName as typeName ,'+
+        'type.id as typeId ' +
+      'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
+      'WHERE article.id =' + id
+
+      const res = await this.app.mysql.query(sql)
+      this.ctx.body = { data: res }
   }
 }
 
