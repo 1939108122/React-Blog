@@ -4,6 +4,10 @@ let servicePath = {
   checkLogin: url + 'checkLogin',  //首页接口
   getTypeInfo: url + 'getTypeInfo',  //文章类别接口
   addArticle: url + 'addArticle',  //添加文章
+  updateArticle: url + 'updateArticle',  //修改文章
+  getArticleList: url + 'getArticleList',  //文章列表
+  delArticle: url + 'delArticle/',  //删除文章
+  getArticleById: url + 'getArticleById/',  //根据ID获取文章
 }
 
 export default servicePath

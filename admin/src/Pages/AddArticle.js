@@ -21,6 +21,13 @@ function AddArticle (props) {
 
   useEffect(()=> {  //生命周期函数使用（一次）
     getTypeInfo()
+    //获取文章ID
+    let tmpId = props.match.params.id
+    if (tmpId) {
+      setArticleId(tmpId)
+      getArticleById(tmpId)
+    }
+    
   }, [])
   // 转换代码的一些设置
   marked.setOptions({
@@ -59,7 +66,6 @@ function AddArticle (props) {
         props.history.push('/')
       }
       else {
-        console.log(res)
         setTypeInfo(res.data.data)
       }
     })
@@ -116,14 +122,55 @@ function AddArticle (props) {
       }).then(res=> {
         setArticleId(res.data.insertId)
         if (res.data.isSuccess) {
-          message.success('文章保存成功')
+          message.success('文章添加成功')
+          
         }
         else {
-          message.error('文章保存失败')
+          message.error('文章添加失败')
         }
       })
     }
-}
+    else {
+      dataProps.id = articleId
+      axios({
+        method: 'post',
+        url: servicePath.updateArticle,
+        data: dataProps,
+        withCredentials: true
+      }).then(res=> {
+        if (res.data.isSuccess) {
+          // console.log(res.data)
+          message.success('文章修改成功')
+          
+        }
+        else {
+          message.error('文章修改失败')
+        }
+      })
+    }
+  }
+  // 根据id显示要修改的文章
+  const getArticleById = (id)=>{
+      axios(servicePath.getArticleById+id,{ 
+          withCredentials: true,
+      }).then(
+          res=>{
+              console.log(res.data.data)
+              let articleInfo= res.data.data[0]
+              setArticleTitle(articleInfo.title)
+              setArticleContent(articleInfo.article_content)
+              let html=marked(articleInfo.article_content)
+              setMarkdownContent(html)
+              setIntroducemd(articleInfo.introduce)
+              let tmpInt = marked(articleInfo.introduce)
+              setIntroducehtml(tmpInt)
+              setShowDate(articleInfo.addTime)
+              setSelectType(articleInfo.typeId)
+
+          }
+      )
+  }
+
   return (
     <div>
       <Row gutter={5}>
@@ -156,6 +203,7 @@ function AddArticle (props) {
               <TextArea className="markdown-content"
                 placeholder="文章内容"
                 rows={35}
+                value={articleContent}
                 onChange={changeContent}
               />
             </Col>
@@ -176,6 +224,7 @@ function AddArticle (props) {
             </Col>
             <Col span={24}>
               <TextArea rows={4} placeholder="文章简介"
+              value={introducemd}
               onChange={changeIntroduce}
               >
               </TextArea>
