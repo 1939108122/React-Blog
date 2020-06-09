@@ -41,6 +41,7 @@ function Login (props) {
         setIsLoading(false)
         if (res.data.data === '登录成功')
         {
+          console.log(res)
           localStorage.setItem('openId',res.data.openId) //保存数据到本地
           props.history.push('/index')  //成功后跳转到首页
         }

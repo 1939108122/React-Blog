@@ -75,7 +75,7 @@ function AddArticle (props) {
   }
     // 保存文章时的检验及存入数据库
   const saveArticle = ()=>{
-    if(!selectedType){
+    if(!selectedType || selectedType === '请选择类型'){
         message.error('必须选择文章类别')
         return false
     }else if(!articleTitle){
