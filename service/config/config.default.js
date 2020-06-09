@@ -36,7 +36,7 @@ module.exports = appInfo => {
       // password
       password: 'root',
       // database
-      database: 'react_blog',    
+      database: 'react_blog',
     },
     // load into app, default is open
     app: true,
