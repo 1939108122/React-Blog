@@ -31,13 +31,13 @@ export default function Home(list) {
   return (
     <>
       <Head>
-        <title>首页</title>
+        <title>hawk的博客</title>
       </Head>
       <Header />
       <Row className="comm-main" type="flex" justify="center">
         <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
           <List
-            header={<div>最新日志</div>} 
+            header={<div>最新日志</div>}
             itemLayout="vertical"
             dataSource={myList}
             renderItem={(item)=>(
@@ -75,7 +75,7 @@ Home.getInitialProps = async () => {
   const promise = new Promise ((resolve)=> {
     axios.get(servicePath.getArticleList).then(
       (res)=> {
-        console.log('---------', res.data)
+        // console.log('---------', res.data)
         resolve(res.data)
       }
     )

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Router from 'next/router'
-import Link from 'next/link'
 import servicePath from '../pages/api/url'
 import axios from 'axios'
 import '../public/components/header.css'
@@ -33,8 +32,8 @@ const Header = () => {
     <div className="header">
       <Row type="flex" justify="center">
         <Col xs={24} sm={24} md={10} lg={15} xl={12}>
-          <span className="header-logo">基尼钛美俱乐部,</span>
-          <span className="header-txt">专注篮球训练</span>
+          <span className="header-logo">热情</span>
+          <span className="header-txt">若未变，哪管它沧桑变化</span>
         </Col>
         <Col xs={0} sm={0} md={14} lg={8} xl={6}>
           <Menu mode="horizontal" onClick={handleClick}>
