@@ -1,16 +1,36 @@
-import {Divider, Avatar } from 'antd'
+import {Divider, Avatar, Tooltip, Tag } from 'antd'
+import imgeUrl from './images'
 import '../public/components/author.css'
 const Author = () => {
   return (
     <div className="author-div comm-box">
       <div>
-        <Avatar size={100} src="https://hawkkke.oss-cn-beijing.aliyuncs.com/fupo.jpg?Expires=1592061557&OSSAccessKeyId=TMP.3KgBed99GUJY8yj7CyVQ3Zjjd97Q8da6fVe6zgXabuMxvMyqS7SeL5ZHFxtVZqLYA64rrwcf439wuCgEwgGC7gSFAxjDpF&Signature=gJn95yrfHZuk3IfHP0a%2BhtuDUg8%3D" />
+        <Avatar size={100} src={imgeUrl.kobe}/>
         <div className="author-introduction">
-        基尼钛美俱乐部，专业从事篮球事业五十年，陪伴您一起享受篮球的乐趣。
+          <div>基尼钛美俱乐部</div>
+          <div>专业从事篮球二十年</div>
+          <div className="Tag-style">
+            <Tag color="magenta">crossover</Tag>
+            <Tag color="cyan">终结者</Tag>
+            <Tag color="green">花式扣篮</Tag>
+          </div>
+          <div className="Tag-style">
+            <Tag color="gold">经典拉杆</Tag>
+            <Tag color="purple">果冻上篮</Tag>
+          </div>
+          <div className="Tag-style">
+          <Tag color="orange">只给九分</Tag>
+          </div>
         <Divider>社交账号</Divider>
-        <Avatar size={28} icon="github" className="account"  src="https://github.com/1939108122"/>
-        <Avatar size={28} icon="qq" className="account"/>
-        <Avatar size={28} icon="wechat" className="account" />
+        <Tooltip title="https://github.com/1939108122">
+          <a href="https://github.com/1939108122"><Avatar size={28} icon="github" className="account"  /></a>
+        </Tooltip>
+        <Tooltip title="QQ 1939108122">
+          <Avatar size={28} icon="qq" className="account"/>
+        </Tooltip>
+        <Tooltip title="wechat 13677904470">
+          <Avatar size={28} icon="wechat" className="account" />
+        </Tooltip>
         </div>
       </div>
     </div>
