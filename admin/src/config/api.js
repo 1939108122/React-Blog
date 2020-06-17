@@ -1,4 +1,5 @@
 let url = 'http://127.0.0.1:7001/admin/'
+// let url = 'http://47.93.232.180:7001/admin/'
 
 let servicePath = {
   checkLogin: url + 'checkLogin',  //首页接口

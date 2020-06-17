@@ -29,6 +29,7 @@ module.exports = appInfo => {
     client: {
       // host
       host: 'localhost',
+      // host: '47.93.232.180',
       // port
       port: '3306',
       // username
@@ -49,7 +50,7 @@ module.exports = appInfo => {
     domainWhiteList: ['*']
   };
   config.cors= {
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:3000',  //打包上线删掉这行
     credentials: true,//允许cookie跨域
     allowMethods:'GET, HEAD, PUT, POST, DELETE, PATCH, OPTIONS'
   }
