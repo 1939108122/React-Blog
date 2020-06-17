@@ -47,18 +47,18 @@ export default function Detail(props) {
             <div className="bread-div">
               <Breadcrumb>
                 <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
-                <Breadcrumb.Item><a href="/index">文章列表</a></Breadcrumb.Item>
-                <Breadcrumb.Item>文章详情</Breadcrumb.Item>
+                <Breadcrumb.Item><a href={"/list?id=" + props.typeId}>{props.typeName}</a></Breadcrumb.Item>
+                <Breadcrumb.Item>{props.title}</Breadcrumb.Item>
               </Breadcrumb>
             </div>
             <div>
               <div className="detailed-title">
-                React实战视频教程（更新第十集）
+               {props.title}
               </div>
               <div className="list-icon center">
-              <span><Icon type="calendar" />2020-6-2</span>
-              <span><Icon type="folder" />视频教程</span>
-              <span><Icon type="fire" />9999人</span>
+              <span><Icon type="calendar" />{props.addTime}</span>
+              <span><Icon type="folder" />{props.typeName}</span>
+              <span><Icon type="fire" />{props.count}人</span>
               </div>
               <div className="detailed-content"
               dangerouslySetInnerHTML={{__html: html}}>

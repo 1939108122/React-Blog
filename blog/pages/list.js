@@ -25,7 +25,7 @@ export default function myList(mylist) {
           <div className="bread-div">
             <Breadcrumb>
               <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
-              <Breadcrumb.Item>视频教程</Breadcrumb.Item>
+              <Breadcrumb.Item>{list[0].typeName}</Breadcrumb.Item>
             </Breadcrumb>
           </div>
           <List

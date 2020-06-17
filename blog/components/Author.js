@@ -5,7 +5,9 @@ const Author = () => {
   return (
     <div className="author-div comm-box">
       <div>
-        <Avatar size={100} src={imgeUrl.kobe}/>
+        <Tooltip title="Mamba Never Out" placement="right">
+          <Avatar size={100} src={imgeUrl.kobe}/>
+        </Tooltip>
         <div className="author-introduction">
           <div>基尼钛美俱乐部</div>
           <div>专业从事篮球二十年</div>
@@ -23,13 +25,13 @@ const Author = () => {
           </div>
         <Divider>社交账号</Divider>
         <Tooltip title="https://github.com/1939108122">
-          <a href="https://github.com/1939108122"><Avatar size={28} icon="github" className="account"  /></a>
+          <a href="https://github.com/1939108122"><Avatar size={28} icon="github" className="account-github"/></a>
         </Tooltip>
         <Tooltip title="QQ 1939108122">
-          <Avatar size={28} icon="qq" className="account"/>
+          <Avatar size={28} icon="qq" className="account-qq"/>
         </Tooltip>
-        <Tooltip title="wechat 13677904470">
-          <Avatar size={28} icon="wechat" className="account" />
+        <Tooltip title="weChat 13677904470">
+          <Avatar size={28} icon="wechat" className="account-wechat" />
         </Tooltip>
         </div>
       </div>
