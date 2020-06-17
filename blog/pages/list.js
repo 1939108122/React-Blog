@@ -66,7 +66,7 @@ myList.getInitialProps = async (context) => {
   const promise = new Promise ((resolve)=> {
     axios.get(servicePath.getListById + id).then(
       (res)=> {
-        console.log('---------', res.data)
+        console.log('---------', res)
         resolve(res.data)
       }
     )

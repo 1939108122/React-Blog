@@ -6,3 +6,15 @@
   margin-bottom: .2rem;
   overflow: hidden;
 }
+.advert{
+  height: 20px;
+  font-size: 15px;
+  color: #888;
+  text-align: center;
+}
+.ignore {
+  height: 20px;
+  font-size: 15px;
+  color: #888;
+  text-align: center;
+}
