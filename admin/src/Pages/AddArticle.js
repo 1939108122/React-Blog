@@ -28,7 +28,7 @@ function AddArticle (props) {
       getArticleById(tmpId)
     }
     
-  }, [])
+  }, []) //加了 []表示只第一次执行，不加每次渲染都会执行
   // 转换代码的一些设置
   marked.setOptions({
     renderer: new marked.Renderer(),
